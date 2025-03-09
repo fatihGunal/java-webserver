@@ -18,16 +18,15 @@ public class RequestHandler {
 
     public void handleRequest(String request) {
         logger.info("New connection established");
-        try (
-                PrintWriter out = new PrintWriter(socket.getOutputStream(), true)
-        ) {
-            out.println(request);
+        try {
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            out.println(printRequest());
         } catch (IOException e) {
             logger.error(e);
         }
     }
 
     private String printRequest() {
-        return "HTTP/1.1 404 OK\nContent-Type: text/plain\n\nHello, world!";
+        return "HTTP/1.1 200 OK\nContent-Type: text/plain\n\nHello, world!";
     }
 }

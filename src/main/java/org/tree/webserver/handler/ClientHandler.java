@@ -13,8 +13,8 @@ public class ClientHandler {
 
     private Socket socket;
 
-    public ClientHandler(Socket clientSocket) {
-        this.socket = clientSocket;
+    public ClientHandler(Socket socket) {
+        this.socket = socket;
     }
 
     public String handleClient() {
@@ -22,9 +22,8 @@ public class ClientHandler {
 
         String request = "";
 
-        try (
-                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        ) {
+        try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             request = in.readLine();
         } catch (IOException e) {
             logger.error(e);

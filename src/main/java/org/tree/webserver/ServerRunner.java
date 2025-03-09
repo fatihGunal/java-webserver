@@ -16,7 +16,6 @@ public class ServerRunner {
             ServerSocket serverSocket = new ServerSocket(PORT);
             HttpServer server = new HttpServer(serverSocket);
             server.start();
-            server.stop();
         } catch (IOException e) {
             logger.error(e);
         }

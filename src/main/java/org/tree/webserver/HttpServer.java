@@ -20,17 +20,20 @@ public class HttpServer {
     }
 
     public void start() throws IOException {
+        logger.info("Starting HTTP Server");
         while (true) {
-            Socket socket = serverSocket.accept();
             logger.info("Accepting client connections...");
+            Socket socket = serverSocket.accept();
             ClientHandler clientHandler = new ClientHandler(socket);
             RequestHandler requestHandler = new RequestHandler(socket);
             String request = clientHandler.handleClient();
             requestHandler.handleRequest(request);
+            stop();
         }
     }
 
     public void stop() throws IOException {
+        logger.info("Shutting down socket...");
         serverSocket.close();
     }
 }
