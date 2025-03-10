@@ -16,7 +16,7 @@ public class RequestHandler {
     public RequestHandler(Socket socket) {
         this.socket = socket;
         try {
-            this.out = new PrintWriter(socket.getOutputStream(), true);
+            this.out = new PrintWriter(this.socket.getOutputStream(), true);
         } catch (IOException e) {
             logger.error(e);
         }

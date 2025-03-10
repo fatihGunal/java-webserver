@@ -17,7 +17,7 @@ public class ClientHandler {
     public ClientHandler(Socket socket) {
         this.socket = socket;
         try {
-            this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            this.in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
         } catch (IOException e) {
             logger.error(e);
         }
