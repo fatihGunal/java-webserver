@@ -1,4 +1,4 @@
 package org.tree.webserver.dto;
 
-public record Request() {
+public record SimpleRequest() {
 }
