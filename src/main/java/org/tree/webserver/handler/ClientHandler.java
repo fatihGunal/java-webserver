@@ -2,6 +2,7 @@ package org.tree.webserver.handler;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.tree.webserver.dto.SimpleRequest;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,15 +24,34 @@ public class ClientHandler {
         }
     }
 
-    public String handleClient() {
+    public SimpleRequest handleClient() {
         logger.info("New connection established");
         String request = "";
         try {
             request = in.readLine();
+            return parseHttpRequest(request);
         } catch (IOException e) {
             logger.error(e);
         }
-        return request;
+        return new SimpleRequest("", "", "");
+    }
+
+    public SimpleRequest parseHttpRequest(String request) {
+        String[] parts = request.split(" ");
+        if (parts.length == 3) {
+            String httpMethod = parts[0];
+            String uri = parts[1];
+            String httpProtocolVersion = parts[2];
+
+            logger.info("httpMethod: " + httpMethod);
+            logger.info("uri: " + uri);
+            logger.info("httpProtocolVersion: " + httpProtocolVersion);
+
+            return new SimpleRequest(httpMethod, uri, httpProtocolVersion);
+        } else {
+            logger.error("Invalid request line");
+        }
+        return new SimpleRequest("", "", "");
     }
 
     public void close() throws IOException {

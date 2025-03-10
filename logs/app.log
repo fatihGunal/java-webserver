@@ -518,3 +518,35 @@
 2025-03-10 03:58:02 [main] INFO  org.tree.webserver.handler.ClientHandler - New connection established
 2025-03-10 03:58:12 [main] INFO  org.tree.webserver.handler.RequestHandler - New connection established
 2025-03-10 03:58:12 [main] INFO  org.tree.webserver.HttpServer - Accepting client connections...
+2025-03-10 04:21:19 [main] INFO  org.tree.webserver.HttpServer - Starting HTTP Server
+2025-03-10 04:21:19 [main] INFO  org.tree.webserver.HttpServer - Accepting client connections...
+2025-03-10 04:21:22 [main] INFO  org.tree.webserver.handler.ClientHandler - New connection established
+2025-03-10 04:21:22 [main] INFO  org.tree.webserver.handler.ClientHandler - httpMethod: POST
+2025-03-10 04:21:22 [main] INFO  org.tree.webserver.handler.ClientHandler - uri: /index.html
+2025-03-10 04:21:22 [main] INFO  org.tree.webserver.handler.ClientHandler - httpProtocolVersion: HTTP/1.1
+2025-03-10 04:21:22 [main] INFO  org.tree.webserver.handler.RequestHandler - New connection established
+2025-03-10 04:21:22 [main] INFO  org.tree.webserver.HttpServer - Accepting client connections...
+2025-03-10 04:22:00 [main] INFO  org.tree.webserver.HttpServer - Starting HTTP Server
+2025-03-10 04:22:00 [main] INFO  org.tree.webserver.HttpServer - Accepting client connections...
+2025-03-10 04:22:05 [main] INFO  org.tree.webserver.handler.ClientHandler - New connection established
+2025-03-10 04:22:05 [main] INFO  org.tree.webserver.handler.ClientHandler - httpMethod: POST
+2025-03-10 04:22:05 [main] INFO  org.tree.webserver.handler.ClientHandler - uri: /index.html
+2025-03-10 04:22:05 [main] INFO  org.tree.webserver.handler.ClientHandler - httpProtocolVersion: HTTP/1.1
+2025-03-10 04:22:05 [main] INFO  org.tree.webserver.handler.RequestHandler - New connection established
+2025-03-10 04:22:05 [main] INFO  org.tree.webserver.HttpServer - Accepting client connections...
+2025-03-10 04:33:46 [main] INFO  org.tree.webserver.HttpServer - Starting HTTP Server
+2025-03-10 04:33:46 [main] INFO  org.tree.webserver.HttpServer - Accepting client connections...
+2025-03-10 04:33:50 [main] INFO  org.tree.webserver.handler.ClientHandler - New connection established
+2025-03-10 04:33:50 [main] INFO  org.tree.webserver.handler.ClientHandler - httpMethod: GET
+2025-03-10 04:33:50 [main] INFO  org.tree.webserver.handler.ClientHandler - uri: /index.html
+2025-03-10 04:33:50 [main] INFO  org.tree.webserver.handler.ClientHandler - httpProtocolVersion: HTTP/1.1
+2025-03-10 04:33:50 [main] INFO  org.tree.webserver.handler.RequestHandler - New connection established
+2025-03-10 04:33:50 [main] INFO  org.tree.webserver.HttpServer - Accepting client connections...
+2025-03-10 04:34:01 [main] INFO  org.tree.webserver.HttpServer - Starting HTTP Server
+2025-03-10 04:34:01 [main] INFO  org.tree.webserver.HttpServer - Accepting client connections...
+2025-03-10 04:34:05 [main] INFO  org.tree.webserver.handler.ClientHandler - New connection established
+2025-03-10 04:34:05 [main] INFO  org.tree.webserver.handler.ClientHandler - httpMethod: GET
+2025-03-10 04:34:05 [main] INFO  org.tree.webserver.handler.ClientHandler - uri: /index.html
+2025-03-10 04:34:05 [main] INFO  org.tree.webserver.handler.ClientHandler - httpProtocolVersion: HTTP/1.1
+2025-03-10 04:34:05 [main] INFO  org.tree.webserver.handler.RequestHandler - New connection established
+2025-03-10 04:34:05 [main] INFO  org.tree.webserver.HttpServer - Accepting client connections...

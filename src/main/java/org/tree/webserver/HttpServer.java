@@ -2,6 +2,7 @@ package org.tree.webserver;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.tree.webserver.dto.SimpleRequest;
 import org.tree.webserver.handler.ClientHandler;
 import org.tree.webserver.handler.RequestHandler;
 
@@ -26,8 +27,8 @@ public class HttpServer {
             Socket socket = serverSocket.accept();
             ClientHandler clientHandler = new ClientHandler(socket);
             RequestHandler requestHandler = new RequestHandler(socket);
-            String request = clientHandler.handleClient();
-            requestHandler.handleRequest(request);
+            SimpleRequest simpleRequest = clientHandler.handleClient();
+            requestHandler.handleRequest(simpleRequest);
             close(clientHandler, requestHandler);
         }
     }
