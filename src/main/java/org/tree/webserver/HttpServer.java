@@ -24,6 +24,7 @@ public class HttpServer {
         while (true) {
             logger.info("Accepting client connections...");
             Socket socket = serverSocket.accept();
+            // This is not a proper way to handle dependencies, as it couples the code tightly to specific implementations.
             ClientHandler clientHandler = new ClientHandler(socket);
             RequestHandler requestHandler = new RequestHandler(socket);
             SimpleRequest simpleRequest = clientHandler.handleClient();
