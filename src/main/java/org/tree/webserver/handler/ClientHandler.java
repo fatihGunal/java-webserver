@@ -12,22 +12,29 @@ public class ClientHandler {
     private static final Logger logger = LogManager.getLogger(ClientHandler.class);
 
     private Socket socket;
+    private BufferedReader in;
 
     public ClientHandler(Socket socket) {
         this.socket = socket;
+        try {
+            this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        } catch (IOException e) {
+            logger.error(e);
+        }
     }
 
     public String handleClient() {
         logger.info("New connection established");
-
         String request = "";
-
         try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             request = in.readLine();
         } catch (IOException e) {
             logger.error(e);
         }
         return request;
+    }
+
+    public void close() throws IOException {
+        in.close();
     }
 }

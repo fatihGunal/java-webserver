@@ -28,12 +28,17 @@ public class HttpServer {
             RequestHandler requestHandler = new RequestHandler(socket);
             String request = clientHandler.handleClient();
             requestHandler.handleRequest(request);
-            stop();
+            close(clientHandler, requestHandler);
         }
     }
 
+    public void close(ClientHandler clientHandler, RequestHandler requestHandler) throws IOException {
+        clientHandler.close();
+        requestHandler.close();
+    }
+
     public void stop() throws IOException {
-        logger.info("Shutting down socket...");
+        logger.info("Stopping HTTP Server");
         serverSocket.close();
     }
 }

@@ -11,22 +11,31 @@ public class RequestHandler {
     private static final Logger logger = LogManager.getLogger(RequestHandler.class);
 
     private Socket socket;
+    PrintWriter out;
 
     public RequestHandler(Socket socket) {
         this.socket = socket;
-    }
-
-    public void handleRequest(String request) {
-        logger.info("New connection established");
         try {
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            out.println(printRequest());
+            this.out = new PrintWriter(socket.getOutputStream(), true);
         } catch (IOException e) {
             logger.error(e);
         }
     }
 
-    private String printRequest() {
-        return "HTTP/1.1 200 OK\nContent-Type: text/plain\n\nHello, world!";
+    public void handleRequest(String request) {
+        logger.info("New connection established");
+        printRequest(out);
+    }
+
+    private void printRequest(PrintWriter out) {
+        out.println("HTTP/1.1 200 OK");
+        out.println("Content-Type: text/plain");
+        out.println(); // End of headers
+        out.println("Fatih"); // Body
+        out.flush(); // Ensure data is sent
+    }
+
+    public void close() {
+        out.close();
     }
 }
