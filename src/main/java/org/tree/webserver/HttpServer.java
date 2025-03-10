@@ -21,7 +21,6 @@ public class HttpServer {
     }
 
     public void start() throws IOException {
-        logger.info("Starting HTTP Server");
         while (true) {
             logger.info("Accepting client connections...");
             Socket socket = serverSocket.accept();

@@ -6,8 +6,7 @@ import org.tree.webserver.dto.HttpMethod;
 import org.tree.webserver.dto.SimpleRequest;
 import org.tree.webserver.dto.SimpleResponse;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 
 public class RequestHandler {
@@ -35,7 +34,8 @@ public class RequestHandler {
     }
 
     private void htmlResponse() {
-        SimpleResponse simpleResponse = createSimpleResponse();
+//        SimpleResponse simpleResponse = createSimpleResponse();
+        SimpleResponse simpleResponse = createSimpleHtmlFileResponse();
         out.println(simpleResponse.statusLine());
         out.println("Content-Type: " + simpleResponse.contentType());
         out.println();
@@ -51,6 +51,23 @@ public class RequestHandler {
         out.flush();
     }
 
+    private SimpleResponse createSimpleHtmlFileResponse() {
+        StringBuilder contentBuilder = new StringBuilder();
+        try (
+                BufferedReader in = new BufferedReader(new FileReader("./web/index.html"))
+        ) {
+            String str;
+            while ((str = in.readLine()) != null) {
+                contentBuilder.append(str);
+            }
+        } catch (IOException e) {
+            logger.error(e);
+        }
+        String content = contentBuilder.toString();
+        return new SimpleResponse("HTTP/1.1 200 OK", "text/html", content);
+    }
+
+    @Deprecated
     private SimpleResponse createSimpleResponse() {
         String htmlBody = """
                 <h1>This is h1 tag</h1>
@@ -60,6 +77,7 @@ public class RequestHandler {
         return new SimpleResponse("HTTP/1.1 200 OK", "text/html", htmlBody);
     }
 
+    @Deprecated
     private void printRequest(PrintWriter out) {
         out.println("HTTP/1.1 200 OK");
         out.println("Content-Type: text/plain");
