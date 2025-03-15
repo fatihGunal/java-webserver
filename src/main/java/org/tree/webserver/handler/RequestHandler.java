@@ -18,6 +18,7 @@ public class RequestHandler {
     public RequestHandler(Socket socket) {
         this.socket = socket;
         try {
+            // TODO use factory method to solve this ugly dependency injection violation
             this.out = new PrintWriter(this.socket.getOutputStream(), true);
         } catch (IOException e) {
             logger.error(e);

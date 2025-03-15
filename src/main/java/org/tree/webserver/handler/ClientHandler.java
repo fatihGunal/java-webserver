@@ -18,6 +18,7 @@ public class ClientHandler {
     public ClientHandler(Socket socket) {
         this.socket = socket;
         try {
+            // TODO use factory method to solve this ugly dependency injection violation
             this.in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
         } catch (IOException e) {
             logger.error(e);
